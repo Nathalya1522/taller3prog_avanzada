@@ -80,57 +80,57 @@
             <div class="carro">
                 <img src="assets/resources/SOTO.png" alt="">
                 <h3>Grupo FL - Mecánico</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <p>Vehículo similar a Kia Soluto 1.4, Renault Logan 1.6, Onix Turbo 1.0</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/LOIX.png" alt="">
                 <h3>Grupo FU - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <p>Vehículo similar a Onix Turbo MT 1.0, Hyundai Accent Advance 1.6, Suzuki Baleno 1.4</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/LONI.png" alt="">
-                <h3>Grupo FX - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <h3>Grupo FX - Intermedio Automático</h3>
+                <p>Vehículo similar a Onix Turbo AT 1.0, Kia Soluto Emotion AT, Suzuki Baleno 1.4</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/LTRA.png" alt="">
-                <h3>Grupo GC - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <h3>Grupo GC - Suv Compacto Automático</h3>
+                <p>Vehículo similar a Chevrolet Tracker 1.2 AT, Nissan Kicks Play, Hyundai Kona 2.0</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/KONT.png" alt="">
-                <h3>Grupo GL - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <h3>Grupo GL - Suv At Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Hyundai Kona 2.0 AT, Tracker Turbo 1.2, Suzuki Vitara 1.6</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/DUST.png" alt="">
-                <h3>Grupo G4 - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <h3>Grupo G4 - Suv Mecánica 4x4</h3>
+                <p>Vehículo similar a Renault Duster 1.3</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/SFHY.png" alt="">
-                <h3>Grupo GY - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <h3>Grupo GY - Suv Híbrido</h3>
+                <p>Vehículo similar a Hyundai Santa Fé 1.6 AT</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/QASH.png" alt="">
-                <h3>Grupo LE - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <h3>Grupo LE - Suv Especial</h3>
+                <p>Vehículo similar a Nissan Qashqai 2.0, Kia Sportage 2.0 AT, Citroën C5 Aircross 1.6</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/ARKA.png" alt="">
-                <h3>Grupo LU - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <h3>Grupo LU - Suv Híbrida Libre De Pico Y Pl</h3>
+                <p>Vehículo similar a Renault Arkana 1.3 AT, Grand Vitara 1.4</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/AMOK.png" alt="">
-                <h3>Grupo P - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <h3>Grupo P - 4x4 Estándar Mecánico/automáti</h3>
+                <p>Vehículo similar a Volkswagen Amarok 2.0, Jac 2.0, Renault Alaskan 2.5</p>
             </div>
             <div class="carro">
                 <img src="assets/resources/PICX.png" alt="">
-                <h3>Grupo C - Automático Sin Pico Y Placa</h3>
-                <p>Vehículo similar a Onix Turbo</p>
+                <h3>Grupo C - Económico Con Aire Mecánico</h3>
+                <p>Vehículo similar a Kia Picanto 1.0, Fiat Mobi 1.0, Renault Kwid 1.0</p>
             </div>
         </div>
 
@@ -240,6 +240,16 @@
       <div class="card-header"><span class="card-title">Actividad reciente</span></div>
       <div id="actividad-reciente"></div>
     </div>
+    <div class="card">
+  <div class="card-header">
+    <div class="card-title">Estadísticas de reservas</div>
+  </div>
+
+  <div style="height:300px">
+    <canvas id="graficaReservas"></canvas>
+  </div>
+</div>
+
   </div>
 
 </div><!-- fin .main -->
@@ -348,5 +358,6 @@
 </div>
 
 <script src="assets/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

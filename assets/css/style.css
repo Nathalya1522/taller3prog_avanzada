@@ -361,3 +361,7 @@ table tr {
 .derecha{
     right: 20px;
 }
+
+canvas {
+  max-width: 100%;
+}

@@ -414,8 +414,56 @@ async function renderHistorial() {
       </div>`;
   }).join('') || '<div class="empty">Sin actividad registrada</div>';
 
+  let chartReservas = null;
+
+function renderGraficaReservas(reservas) {
+
+  const activas = reservas.filter(r => r.estado === 'activa').length;
+  const completadas = reservas.filter(r => r.estado === 'completada').length;
+  const canceladas = reservas.filter(r => r.estado === 'cancelada').length;
+
+  const ctx = document.getElementById('graficaReservas');
+
+  // evitar duplicar gráfica
+  if (chartReservas) {
+    chartReservas.destroy();
+  }
+
+  chartReservas = new Chart(ctx, {
+    type: 'doughnut',
+
+    data: {
+      labels: ['Activas', 'Completadas', 'Canceladas'],
+
+      datasets: [{
+        data: [activas, completadas, canceladas],
+
+        backgroundColor: [
+          '#1d4ed8',
+          '#16a34a',
+          '#dc2626'
+        ],
+
+        borderWidth: 0
+      }]
+    },
+
+    options: {
+      responsive: true,
+
+      maintainAspectRatio: false,
+
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }
+  });
+}
   renderHistVehiculo();
   renderHistCliente();
+  renderGraficaReservas(reservas);
 }
 
 async function renderHistVehiculo() {
