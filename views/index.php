@@ -50,7 +50,99 @@
         <div id="dash-activas"></div>
       </div>
     </div>
+
+    <section class="flota">
+    <h2>Conoce nuestra flota</h2>
+    <p>Las mejores opciones para que reserves y aproveches</p>
+
+    <div class="contenedor-carrusel">
+
+        <!-- Flecha izquierda -->
+        <button class="flecha izquierda" onclick="moverIzquierda()">
+            &#10094;
+        </button>
+
+        <!-- Carrusel -->
+        <div class="carrusel" id="carrusel">
+
+            <div class="carro">
+                <img src="assets/resources/PICZ.png" alt="">
+                <h3>Grupo CX - Económico</h3>
+                <p>Vehículo similar a Kia Picanto</p>
+            </div>
+
+            <div class="carro">
+                <img src="assets/resources/SOLU.png" alt="">
+                <h3>Grupo F - Intermedio</h3>
+                <p>Vehículo similar a Renault Logan</p>
+            </div>
+
+            <div class="carro">
+                <img src="assets/resources/SOTO.png" alt="">
+                <h3>Grupo FL - Mecánico</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/LOIX.png" alt="">
+                <h3>Grupo FU - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/LONI.png" alt="">
+                <h3>Grupo FX - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/LTRA.png" alt="">
+                <h3>Grupo GC - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/KONT.png" alt="">
+                <h3>Grupo GL - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/DUST.png" alt="">
+                <h3>Grupo G4 - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/SFHY.png" alt="">
+                <h3>Grupo GY - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/QASH.png" alt="">
+                <h3>Grupo LE - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/ARKA.png" alt="">
+                <h3>Grupo LU - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/AMOK.png" alt="">
+                <h3>Grupo P - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+            <div class="carro">
+                <img src="assets/resources/PICX.png" alt="">
+                <h3>Grupo C - Automático Sin Pico Y Placa</h3>
+                <p>Vehículo similar a Onix Turbo</p>
+            </div>
+        </div>
+
+        <!-- Flecha derecha -->
+        <button class="flecha derecha" onclick="moverDerecha()">
+            &#10095;
+        </button>
+    </div>
+</section>
   </div>
+
+  
 
   <!-- ==================== VEHÍCULOS ==================== -->
   <div id="section-vehiculos" class="section">

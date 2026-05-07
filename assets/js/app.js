@@ -474,4 +474,63 @@ document.querySelectorAll('.modal-overlay').forEach(overlay => {
 /* ==========================================================
    9. INICIALIZACIÓN
 ========================================================== */
-renderDash();
+document.addEventListener('DOMContentLoaded', () => {
+  renderDash();
+});
+
+/* ==========================================================
+   crrusel.js — Lógica para el carrusel de vehículos destacados
+========================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const carrusel = document.querySelector('.carrusel');
+    const carros = document.querySelectorAll('.carro');
+
+    let indice = 0;
+
+    function actualizarCarrusel(){
+
+        carros.forEach(carro =>{
+            carro.classList.remove('activo');
+        });
+
+        carros[indice].classList.add('activo');
+
+        const desplazamiento = indice * 340;
+
+        carrusel.style.transform =
+            `translateX(-${desplazamiento}px)`;
+    }
+
+    function moverDerecha(){
+
+        indice++;
+
+        if(indice >= carros.length){
+            indice = 0;
+        }
+
+        actualizarCarrusel();
+    }
+
+    function moverIzquierda(){
+
+        indice--;
+
+        if(indice < 0){
+            indice = carros.length - 1;
+        }
+
+        actualizarCarrusel();
+    }
+
+    // Hacer funciones globales
+    window.moverDerecha = moverDerecha;
+    window.moverIzquierda = moverIzquierda;
+
+    actualizarCarrusel();
+
+});
+
+actualizarCarrusel();

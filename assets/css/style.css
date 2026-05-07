@@ -5,7 +5,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #f4f5f7;
+  background: linear-gradient(to bottom right, #f8fafc, #eef2ff);
   color: #1a1a2e;
   font-size: 14px;
 }
@@ -107,9 +107,10 @@ body {
   border: 1px solid #cbd5e0;
   background: #ffffff;
   border-radius: 8px; cursor: pointer;
-  color: #1a1a2e; transition: all 0.15s; font-family: inherit;
+  color: #1a1a2e; transition: all .2s ease; 
+  font-family: inherit;
 }
-.btn:hover { background: #f8fafc; border-color: #94a3b8; }
+.btn:hover { background: #f8fafc; border-color: #94a3b8; transform: scale(1.03);}
 .btn-primary { background: #185FA5; color: #ffffff; border-color: #185FA5; }
 .btn-primary:hover { background: #0c4a7c; border-color: #0c4a7c; }
 .btn-sm { font-size: 12px; padding: 5px 12px; }
@@ -131,6 +132,9 @@ th {
 td { padding: 12px; border-bottom: 1px solid #f1f5f9; color: #1a1a2e; vertical-align: middle; }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: #f8fafc; }
+tr {
+  transition: background .2s ease;
+}
 
 /* ============================
    BADGES
@@ -156,6 +160,18 @@ tr:hover td { background: #f8fafc; }
   background: #ffffff; border-radius: 14px; padding: 28px;
   width: 440px; max-width: 96vw;
   box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  animation: modalPop .25s ease;
+}
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 .modal h3 { font-size: 16px; font-weight: 600; margin-bottom: 20px; color: #1a1a2e; }
 
@@ -224,3 +240,124 @@ input:focus, select:focus {
 .empty { text-align: center; padding: 36px; color: #94a3b8; font-size: 13px; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .td-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.card,
+.modal,
+.stat-card,
+table tr {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: all .2s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 10px;
+}
+
+/* =============carrusel===============*/
+
+.flota{
+    text-align: center;
+    padding: 50px;
+    background: #f5f5f5;
+}
+
+.contenedor-carrusel{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 40px 80px;
+}
+
+.carrusel{
+    display: flex;
+    gap: 40px;
+    transition: transform 0.5s ease;
+    width: max-content;
+}
+
+.carro{
+    min-width: 300px;
+    opacity: 0.5;
+    transform: scale(0.8);
+    transition: 0.5s;
+}
+
+.carro.activo{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carro img{
+    width: 100%;
+}
+
+.flecha{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #185FA5;
+    background: white;
+    color: #185FA5;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.flecha:hover{
+    background: #185FA5;
+    color: white;
+}
+.flecha{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    background: white;
+    color: #185FA5;
+
+    border-radius: 50%;
+    border: 2px solid #185FA5;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 99999;
+}
+
+.izquierda{
+    left: 20px;
+}
+
+.derecha{
+    right: 20px;
+}
