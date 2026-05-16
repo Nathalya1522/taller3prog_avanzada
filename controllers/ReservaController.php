@@ -11,8 +11,18 @@ $action   = $_GET['action'] ?? $_POST['action'] ?? '';
 switch ($action) {
 
     case 'list':
-        echo json_encode($resModel->getAll());
-        break;
+    $reservas = $resModel->getAll();
+    foreach ($reservas as &$r) {
+        $inicio = new DateTime($r['fecha_inicio']);
+        $fin    = new DateTime($r['fecha_fin']);
+        $r['total_dias'] = max(
+            1,
+            $inicio->diff($fin)->days
+        );
+    }
+    echo json_encode($reservas);
+
+    break;
 
     case 'byVehiculo':
         $id = (int)($_GET['id'] ?? 0);
