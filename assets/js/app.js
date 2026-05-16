@@ -8,9 +8,6 @@
    1. UTILIDADES
 ========================================================== */
 
-function dias(inicio, fin) {
-  return Math.max(1, Math.round((new Date(fin) - new Date(inicio)) / 86400000));
-}
 
 function showAlert(mensaje, tipo = 'success') {
   const box = document.getElementById('alert-box');
@@ -147,29 +144,41 @@ function openModalVehiculo() {
 async function guardarVehiculo() {
   const editId = document.getElementById('v-edit-id').value;
   const params = {
-    marca:     document.getElementById('v-marca').value.trim(),
-    modelo:    document.getElementById('v-modelo').value.trim(),
-    anio:      document.getElementById('v-anio').value,
+    marca: document.getElementById('v-marca').value.trim(),
+    modelo: document.getElementById('v-modelo').value.trim(),
+    anio: document.getElementById('v-anio').value,
     categoria: document.getElementById('v-categoria').value,
-    estado:    document.getElementById('v-estado').value,
+    estado: document.getElementById('v-estado').value,
   };
-  if (!params.marca || !params.modelo || !params.anio) {
-    showAlert('Completa marca, modelo y año', 'error'); return;
-  }
   let res;
   if (editId) {
     params.id = editId;
-    res = await api('controllers/VehiculoController.php?action=update', params);
+    res = await api(
+      'controllers/VehiculoController.php?action=update',
+      params
+    );
   } else {
-    res = await api('controllers/VehiculoController.php?action=create', params);
+    res = await api(
+      'controllers/VehiculoController.php?action=create',
+      params
+    );
   }
   if (res.success) {
     closeModal('modal-vehiculo');
     showAlert(`Vehículo ${params.marca} ${params.modelo} guardado`);
     renderVehiculos();
-    if (document.getElementById('section-dashboard').classList.contains('active')) renderDash();
+    if (
+      document
+        .getElementById('section-dashboard')
+        .classList.contains('active')
+    ) {
+      renderDash();
+    }
   } else {
-    showAlert(res.message || 'Error al guardar', 'error');
+    showAlert(
+      res.message || 'Error al guardar',
+      'error'
+    );
   }
 }
 
@@ -244,30 +253,37 @@ function openModalCliente() {
 }
 
 async function guardarCliente() {
+
   const editId = document.getElementById('c-edit-id').value;
   const params = {
-    nombre:          document.getElementById('c-nombre').value.trim(),
-    telefono:        document.getElementById('c-telefono').value.trim(),
-    correo:          document.getElementById('c-correo').value.trim(),
+    nombre: document.getElementById('c-nombre').value.trim(),
+    telefono: document.getElementById('c-telefono').value.trim(),
+    correo: document.getElementById('c-correo').value.trim(),
     numero_licencia: document.getElementById('c-licencia').value.trim(),
   };
-  if (!params.nombre || !params.numero_licencia) {
-    showAlert('Nombre y licencia son obligatorios', 'error'); return;
-  }
   let res;
   if (editId) {
     params.id = editId;
-    res = await api('controllers/ClienteController.php?action=update', params);
+    res = await api(
+      'controllers/ClienteController.php?action=update',
+      params
+    );
   } else {
-    res = await api('controllers/ClienteController.php?action=create', params);
+    res = await api(
+      'controllers/ClienteController.php?action=create',
+      params
+    );
   }
-  if (res.success) {
+  if (res.success) { 
     closeModal('modal-cliente');
     showAlert(`Cliente ${params.nombre} guardado`);
     renderClientes();
     renderDash();
   } else {
-    showAlert(res.message || 'Error al guardar', 'error');
+    showAlert(
+      res.message || 'Error al guardar',
+      'error'
+    );
   }
 }
 
@@ -306,7 +322,7 @@ function filtrarReservas() {
   const tb = document.getElementById('tabla-reservas');
   tb.innerHTML = lista.length
     ? lista.map(r => {
-        const d = dias(r.fecha_inicio, r.fecha_fin);
+        const d = r.total_dias;
         return `
           <tr>
             <td><strong>${r.cliente_nombre}</strong></td>
@@ -346,22 +362,27 @@ async function openModalReserva() {
 
 async function guardarReserva() {
   const params = {
-    cliente_id:   document.getElementById('r-cliente').value,
-    vehiculo_id:  document.getElementById('r-vehiculo').value,
+    cliente_id: document.getElementById('r-cliente').value,
+    vehiculo_id: document.getElementById('r-vehiculo').value,
     fecha_inicio: document.getElementById('r-inicio').value,
-    fecha_fin:    document.getElementById('r-fin').value,
+    fecha_fin: document.getElementById('r-fin').value,
   };
-  if (!params.cliente_id || !params.vehiculo_id || !params.fecha_inicio || !params.fecha_fin) {
-    showAlert('Completa todos los campos', 'error'); return;
-  }
-  const res = await api('controllers/ReservaController.php?action=create', params);
+  const res = await api(
+    'controllers/ReservaController.php?action=create',
+    params
+  );
   if (res.success) {
     closeModal('modal-reserva');
-    showAlert('Reserva creada exitosamente');
+    showAlert(
+      'Reserva creada exitosamente'
+    );
     renderReservas();
     renderDash();
   } else {
-    showAlert(res.message || 'Error al crear la reserva', 'error');
+    showAlert(
+      res.message || 'Error al crear la reserva',
+      'error'
+    );
   }
 }
 
